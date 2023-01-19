@@ -24,3 +24,14 @@ spec:
     name: admin-pod
 
 
+2. Create a new deployment called web-proj-268 wiy=th image nginx1.16 and 1 replica Net upgrade to 1.17 usng rolling update 
+make sure udate is stored in resource annotation.
+
+kubectl create deployment web-proj-268 --image=nginx:1.16
+
+kubectl set image deployment web-proj-268 nginx=nginx:1.17 --record
+
+kubectl describe deployment web-proj-268 | grep -i image
+
+kubectl rollout history deployment/web-proj-268
+
